@@ -1,4 +1,6 @@
-package com.ossez.spring.security.models;
+package com.ossez.spring.security.models.entity;
+
+import com.ossez.spring.security.models.ERole;
 
 import javax.persistence.*;
 

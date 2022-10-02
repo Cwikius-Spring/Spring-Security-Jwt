@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ossez.spring.security.models.User;
+import com.ossez.spring.security.models.entity.User;
 import com.ossez.spring.security.repository.UserRepository;
 
 @Service

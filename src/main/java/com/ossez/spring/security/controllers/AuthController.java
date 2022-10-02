@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.ossez.spring.security.models.ERole;
-import com.ossez.spring.security.models.Role;
+import com.ossez.spring.security.models.entity.Role;
 import com.ossez.spring.security.payload.request.LoginRequest;
 import com.ossez.spring.security.payload.request.SignupRequest;
 import com.ossez.spring.security.payload.response.JwtResponse;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ossez.spring.security.models.User;
+import com.ossez.spring.security.models.entity.User;
 import com.ossez.spring.security.repository.RoleRepository;
 import com.ossez.spring.security.repository.UserRepository;
 

@@ -1,4 +1,4 @@
-package com.ossez.spring.security.models;
+package com.ossez.spring.security.models.entity;
 
 import java.util.HashSet;
 import java.util.Set;
