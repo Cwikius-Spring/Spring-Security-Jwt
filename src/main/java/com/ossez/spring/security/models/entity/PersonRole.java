@@ -2,12 +2,15 @@ package com.ossez.spring.security.models.entity;
 
 import com.ossez.spring.security.models.ERole;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class PersonRole extends AbstractPersistable<Long> {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

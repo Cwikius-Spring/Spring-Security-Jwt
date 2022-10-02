@@ -17,22 +17,23 @@ import java.util.Set;
  * @author YuCheng Hu
  */
 
+
+@Entity
 @Getter
 @Setter
-@Entity
 @Accessors(chain = true)
 //@Table(name = "person", uniqueConstraints = {@UniqueConstraint(columnNames = "user_name"), @UniqueConstraint(columnNames = "user_email")})
 public class Person extends AbstractPersistable<Long> {
 
-        @NotBlank
+    @NotBlank
     @Size(max = 20)
     private String userName;
 
-        @NotBlank
+    @NotBlank
     @Size(max = 120)
     private String userPassword;
 
-        @NotBlank
+    @NotBlank
     @Email
     private String userEmail;
 
