@@ -3,15 +3,16 @@ package com.ossez.spring.security.repository;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ossez.spring.security.models.entity.Person;
 
 @Repository
-public interface UserRepository extends JpaRepository<Person, Long> {
-  Optional<Person> findByUsername(String username);
+public interface UserRepository extends CrudRepository<Person, Long> {
+  Optional<Person> findByUserName(String userName);
 
-  Boolean existsByUsername(String username);
+  Boolean existsByUserName(String userName);
 
-  Boolean existsByEmail(String email);
+  Boolean existsByUserEmail(String userEmail);
 }

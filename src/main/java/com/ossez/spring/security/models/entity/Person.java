@@ -1,7 +1,8 @@
 package com.ossez.spring.security.models.entity;
 
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.Accessors;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,32 +13,31 @@ import java.util.Set;
 
 /**
  * Person Entity
+ *
  * @author YuCheng Hu
  */
 
+@Getter
+@Setter
 @Entity
-@Data()
 @Accessors(chain = true)
-@Table(name = "Person", uniqueConstraints = {@UniqueConstraint(columnNames = "user_name"), @UniqueConstraint(columnNames = "user_email")})
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//@Table(name = "person", uniqueConstraints = {@UniqueConstraint(columnNames = "user_name"), @UniqueConstraint(columnNames = "user_email")})
+public class Person extends AbstractPersistable<Long> {
 
-    @NotBlank
+        @NotBlank
     @Size(max = 20)
     private String userName;
 
-    @NotBlank
+        @NotBlank
     @Size(max = 120)
     private String userPassword;
 
-    @NotBlank
-    @Size(max = 50)
+        @NotBlank
     @Email
     private String userEmail;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    ////    @ManyToMany(fetch = FetchType.LAZY)
+////    @JoinTable(name = "person_role", joinColumns = @JoinColumn(name = "id"))
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<PersonRole> personRoles;
 }

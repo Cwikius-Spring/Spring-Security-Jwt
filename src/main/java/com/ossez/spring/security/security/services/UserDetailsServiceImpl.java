@@ -12,16 +12,19 @@ import com.ossez.spring.security.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-  @Autowired
-  UserRepository userRepository;
+    final UserRepository userRepository;
 
-  @Override
-  @Transactional
-  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Person user = userRepository.findByUsername(username)
-        .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+    @Autowired
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-    return UserDetailsImpl.build(user);
-  }
+    @Override
+    @Transactional
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Person user = userRepository.findByUserName(username).orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+
+        return UserDetailsImpl.build(user);
+    }
 
 }
