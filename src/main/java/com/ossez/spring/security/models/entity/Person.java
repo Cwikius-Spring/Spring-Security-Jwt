@@ -18,7 +18,7 @@ import java.util.Set;
 @Entity
 @Data()
 @Accessors(chain = true)
-@Table(name = "Person", uniqueConstraints = {@UniqueConstraint(columnNames = "username"), @UniqueConstraint(columnNames = "email")})
+@Table(name = "Person", uniqueConstraints = {@UniqueConstraint(columnNames = "user_name"), @UniqueConstraint(columnNames = "user_email")})
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
