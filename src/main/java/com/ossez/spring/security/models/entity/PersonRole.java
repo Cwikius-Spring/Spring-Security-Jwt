@@ -17,7 +17,6 @@ public class PersonRole extends AbstractPersistable<Long> {
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
+    @Enumerated(EnumType.ORDINAL)
     private ERole personRoleKey;
 }
